@@ -56,10 +56,10 @@ int main()
     Player cpu = {25, 130, 10, screen_height / 2 - 65, GREEN};
     Player player = {25, 130, screen_width - 35, screen_height / 2 - 65, GREEN};
 
-
+    
     InitWindow(screen_width, screen_height, "PONG PONG");
     SetTargetFPS(60);
-
+    
 
     bool scored = false;
     double delayStartTime = 0;
