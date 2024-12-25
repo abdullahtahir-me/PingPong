@@ -1,98 +1,118 @@
-# PONGPONG: A Modern Take on the Classic PONG Game
+# 🏓 PONGPONG: A Modern Take on the Classic PONG Game
 
-## Overview
+![Language](https://img.shields.io/badge/Language-C-blue?logo=c)  
+![Graphics Library](https://img.shields.io/badge/Graphics%20Library-Raylib-orange?logo=raylib)  
+![IDE](https://img.shields.io/badge/IDE-VS%20Code-purple?logo=visual-studio-code)  
+![Version Control](https://img.shields.io/badge/Version%20Control-Git-red?logo=git)
 
-PONGPONG is a two-player competitive game developed using the C programming language and the Raylib graphics library. This project demonstrates fundamental programming concepts such as collision detection, user input handling, and game state management.
+## 🎮 Overview
 
-Key achievements:
-- Successfully implemented a complete game loop.
-- Created multiple screens: loading, starting, and game over screens.
-- Developed real-time collision detection and a scoring system.
-- Introduced progressive difficulty mechanics.
+PONGPONG is a competitive two-player game developed using **C** programming language and the **Raylib** graphics library. This project highlights fundamental programming concepts such as collision detection, user input handling, and state management.
 
-## Table of Contents
-1. [Introduction](#introduction)
-2. [Features](#features)
-3. [Tools Used](#tools-used)
-4. [Game Screens](#game-screens)
-5. [Implementation Details](#implementation-details)
-6. [User Manual](#user-manual)
-
-## Introduction
-
-This project was developed as part of the Computer Fundamentals and Programming (CFP-101) course. The goal was to create a fully functional game that applies the concepts learned in the first semester, such as:
-- Basic game development
-- Graphics programming
-- State management
-
-## Features
-
-1. Two-player competitive gameplay.
-2. Multiple game screens:
-   - Loading screen with an animated progress bar.
-   - Main menu with start and exit options.
-   - Gameplay screen with score tracking.
-   - Game over screen with winner display and retry option.
-3. Smooth animations and retro-style design.
-4. Progressive difficulty mechanics.
-
-## Tools Used
-
-- **Programming Language:** C
-- **Graphics Library:** Raylib
-- **IDE:** Visual Studio Code
-- **Version Control:** Git
-
-## Game Screens
-
-### Loading Screen
-- Displays the game title: "PONGPONG".
-- Includes an animated progress bar and developer credits.
-
-### Main Menu
-- Options to start or exit the game.
-- Retro-style background.
-
-### Gameplay Screen
-- Two controllable paddles and a moving ball.
-- Score display for both players.
-- Tennis court background.
-
-### Game Over Screen
-- Declares the winner among the two players.
-- Options to retry or exit the game.
-
-## Implementation Details
-
-### Core Structures
-- **Paddle Structure:** Manages paddle dimensions, coordinates, and color.
-- **Ball Structure:** Handles ball position, size, speed, and color.
-- **Game States:** Controls various game screens.
-
-### Functions
-1. **Paddle Movement Function**
-   - Handles keyboard input and updates paddle positions.
-   - Implements boundary checking and speed control.
-
-2. **Collision Detection Function**
-   - Detects collisions and reverses ball direction.
-   - Handles boundary interactions.
-
-3. **Ball Physics and Scoring**
-   - Implements ball movement and scoring system.
-   - Increases ball velocity and ends the game after a score of 5.
-
-## User Manual
-
-- **Start Game:** Press `Enter`.
-- **Player 1 Controls:** `W/S` keys.
-- **Player 2 Controls:** `Up/Down` arrow keys.
-- **Exit Game:** Press `ESC`.
-- **Replay Game:** Press `Space` after the game over screen.
+✨ **Key Achievements**:
+- ✅ Fully functional game loop.  
+- ✅ Multiple game screens (Loading, Main Menu, Gameplay, Game Over).  
+- ✅ Real-time collision detection and score tracking.  
+- ✅ Progressive difficulty mechanics for enhanced gameplay.  
 
 ---
 
-Developed by:  
-Muhammad Abdullah Khan & Ali Hassan  
-Under the guidance of: Dr. Nouman Shamim, DCIS PIEAS  
-Fall 2024
+## 📋 Table of Contents
+1. [🎯 Introduction](#-introduction)  
+2. [⚙️ Features](#️-features)  
+3. [🛠️ Tools Used](#️-tools-used)  
+4. [🖥️ Game Screens](#%EF%B8%8F-game-screens)  
+5. [🔧 Implementation Details](#-implementation-details)  
+6. [📖 User Manual](#-user-manual)
+
+---
+
+## 🎯 Introduction
+
+PONGPONG was developed as part of the **Computer Fundamentals and Programming (CFP-101)** course. The goal of the project was to explore and apply programming basics through game development.
+
+📚 **Learning Outcomes**:
+- Basic game development concepts.  
+- Graphics programming and animations.  
+- State management and user interaction.  
+
+---
+
+## ⚙️ Features
+
+- 🎮 **Two-player competitive gameplay**.  
+- 🖥️ **Multiple game screens**:  
+  - Loading screen with animated progress bar.  
+  - Main Menu with start and exit options.  
+  - Gameplay screen featuring score tracking.  
+  - Game Over screen announcing the winner.  
+- 🌟 Smooth animations and retro-style graphics.  
+- 🚀 **Progressive difficulty mechanics** for increased challenge.  
+
+---
+
+## 🛠️ Tools Used
+
+- 🖥️ **Programming Language**: C  
+- 🎨 **Graphics Library**: Raylib  
+- 🔧 **IDE**: Visual Studio Code  
+- 🌀 **Version Control**: Git  
+
+---
+
+## 🖥️ Game Screens
+
+### 📂 Loading Screen
+- 🔤 Game title: **PONGPONG**  
+- 🕹️ Animated progress bar and developer credits.
+
+### 🏠 Main Menu
+- 🎬 Options: **Start Game** and **Exit Game**  
+- 🕹️ Retro-style background.
+
+### 🕹️ Gameplay Screen
+- 🎮 Two controllable paddles and a moving ball.  
+- 📊 Score display for both players.  
+- 🎾 Tennis court-style background.
+
+### 🚨 Game Over Screen
+- 🏆 Displays the **winner** among players.  
+- 🔄 **Retry** or **Exit** options.
+
+---
+
+## 🔧 Implementation Details
+
+### 🔹 Core Structures
+- **Paddle Structure**: Dimensions, coordinates, and color.  
+- **Ball Structure**: Position, size, speed, and color.  
+- **Game States**: Controls screens (loading, main menu, gameplay, game over).
+
+### 🔹 Functions
+1. **Paddle Movement**:  
+   - Handles keyboard inputs, updates paddle positions, boundary checking.  
+
+2. **Collision Detection**:  
+   - Detects collisions, reverses ball direction, and manages boundaries.  
+
+3. **Ball Physics and Scoring**:  
+   - Implements ball movement, scoring system, speed increase, and game over logic.
+
+---
+
+## 📖 User Manual
+
+- ▶️ **Start Game**: Press `Enter`.  
+- 🎮 **Player 1 Controls**: `W/S` keys.  
+- 🎮 **Player 2 Controls**: `Up/Down` arrow keys.  
+- ❌ **Exit Game**: Press `ESC`.  
+- 🔄 **Replay**: Press `Space` after the game over screen.
+
+---
+
+Developed with ❤️ by:
+- **Muhammad Abdullah Khan**  
+- **Ali Hassan**
+
+Under the guidance of:  
+**Dr. Nouman Shamim** | DCIS PIEAS | Fall 2024
