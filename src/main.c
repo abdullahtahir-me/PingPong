@@ -2,7 +2,6 @@
 Credits:
 Muhammad Abdullah Khan
 Ali Hassan
-Hashim Matloob Raja
 */
 
 #include <raylib.h>
