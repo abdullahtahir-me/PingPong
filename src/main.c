@@ -18,14 +18,14 @@ void chkCollisionPlayer(float *paddleWidth, float *paddleY);
 void chkCollisionCpu(float *paddleWidth, float *paddleY);
 void gameLogic(bool *scored, double *delayStartTime);
 
-typedef struct player
+typedef struct paddle
 {
     float width;
     float height;
     float x;
     float y;
     Color color;
-} Player;
+} Paddle;
 typedef struct ball
 {
     float x;
@@ -53,8 +53,8 @@ float loadingSpeed = 0.005f;
 
 int main()
 {
-    Player cpu = {25, 130, 10, screen_height / 2 - 65, GREEN};
-    Player player = {25, 130, screen_width - 35, screen_height / 2 - 65, GREEN};
+    Paddle cpu = {25, 130, 10, screen_height / 2 - 65, GREEN};
+    Paddle player = {25, 130, screen_width - 35, screen_height / 2 - 65, GREEN};
 
     
     InitWindow(screen_width, screen_height, "PONG PONG");
@@ -102,7 +102,7 @@ int main()
                 DrawText(title,screen_width/2-textWidth/2,screen_height/2-50,60,WHITE);
 
                 // Draw developer names in the lower-right corner
-                const char *credits = "Developers:\nMuhammad Abdullah Khan\nAli Hassan\nHashim Matloob";
+                const char *credits = "Developers:\nMuhammad Abdullah Khan\nAli Hassan";
                 DrawText(credits, screen_width - 260, screen_height - 100, 20, GRAY);
 
                 // Draw the loading bar below "PONG PONG"
