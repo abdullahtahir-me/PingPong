@@ -145,6 +145,7 @@ int main()
 
                 // Draw ball with texture
                 float scale=30.0f/ball_tx.height;
+                
                 DrawTexturePro(
                     ball_tx,
                     (Rectangle){0,0,ball_tx.width,ball_tx.height},
@@ -173,8 +174,8 @@ int main()
 
                 //Score printing
                 (cpu_score > player_score)?
-                DrawText(TextFormat("Player One Win!!!"),screen_width/2-150,screen_height/3-50,40,WHITE):
-                DrawText(TextFormat("Player Two Win!!!"),screen_width/2-150,screen_height/4-50,40,WHITE);
+                DrawText(TextFormat("Player One Win!!!"),screen_width/2-150,screen_height/3-100,40,WHITE):
+                DrawText(TextFormat("Player Two Win!!!"),screen_width/2-150,screen_height/4-100,40,WHITE);
 
                 DrawText(TextFormat("GAME\nOVER"),screen_width/2-55,screen_height/4,40,WHITE);
                 
