@@ -15,7 +15,7 @@ void playerMove(float *paddleY);
 void cpuMove(float *paddleY);
 void chkCollisionPlayer(float *paddleWidth, float *paddleY);
 void chkCollisionCpu(float *paddleWidth, float *paddleY);
-void gameLogic(bool *scored, double *delayStartTime);
+void gameLogic(bool *scored, double *delayStartTime, Sound hit,Sound gameover);
 
 typedef struct paddle
 {
@@ -64,14 +64,14 @@ int main()
     double delayStartTime = 0;
 
 
-    
+    InitAudioDevice();
     Texture2D bg = LoadTexture("img/bg.jpg");
     Texture2D ball_tx = LoadTexture("img/ball.png");
     Texture2D start = LoadTexture("img/start.png");
     Texture2D end = LoadTexture("img/end.png");
-
-
-
+    Sound hit = LoadSound("img/hit.mp3");
+    Sound logo = LoadSound("img/logo.mp3");
+    Sound gameover = LoadSound("img/gameover.mp3");
     // Check if the ball texture loaded successfully
     if (ball_tx.id==0 || bg.id==0)
     {
@@ -85,6 +85,7 @@ int main()
         {
             case LOGO:
                 // Update loading progress
+                if (loadingProgress == 0.0f) PlaySound(logo);
                 if (loadingProgress < 1.0f) {
                     loadingProgress += loadingSpeed;
                 }else{
@@ -99,7 +100,7 @@ int main()
                 const char *title = "PONG PONG";
                 int textWidth = MeasureText(title, 60);
                 DrawText(title,screen_width/2-textWidth/2,screen_height/2-50,60,WHITE);
-
+                
                 // Draw developer names in the lower-right corner
                 const char *credits = "Developers:\nMuhammad Abdullah Khan\nAli Hassan";
                 DrawText(credits, screen_width - 260, screen_height - 100, 20, GRAY);
@@ -130,7 +131,7 @@ int main()
                 break;
 
             case GAMELOOP:
-                gameLogic(&scored,&delayStartTime);
+                gameLogic(&scored,&delayStartTime,hit,gameover);
 
                 BeginDrawing();
 
@@ -175,7 +176,6 @@ int main()
                 (cpu_score > player_score)?
                 DrawText(TextFormat("Player One Win!!!"),screen_width/2-150,screen_height/3-100,40,WHITE):
                 DrawText(TextFormat("Player Two Win!!!"),screen_width/2-150,screen_height/4-100,40,WHITE);
-
                 DrawText(TextFormat("GAME\nOVER"),screen_width/2-55,screen_height/4,40,WHITE);
                 
                 if (IsKeyDown(KEY_SPACE))
@@ -241,7 +241,8 @@ void chkCollisionCpu(float *paddleWidth, float *paddleY)
 }
 void chkCollisionPlayer(float *paddleWidth, float *paddleY)
 {
-    if ((ball.x) + (ball.rad) >= screen_width - ((*paddleWidth) + 10) && (ball.y >= (*paddleY)) && (ball.y <= (*paddleY) + 130))
+    if ((ball.x) + (ball.rad) >= screen_width - ((*paddleWidth) + 10) && (ball.y >= (*paddleY)) &&
+     (ball.y <= (*paddleY) + 130))
     {
         ball.speedX *= -1;
         ball.x = screen_width - ((*paddleWidth) + 10) - ball.rad;
@@ -250,7 +251,7 @@ void chkCollisionPlayer(float *paddleWidth, float *paddleY)
 
 
 
-void gameLogic(bool *scored, double *delayStartTime)
+void gameLogic(bool *scored, double *delayStartTime,Sound hit,Sound gameover)
 {
     // Ball Movement
     if (!*scored)
@@ -263,6 +264,7 @@ void gameLogic(bool *scored, double *delayStartTime)
     if (ball.x + ball.rad >= screen_width)
     {
         cpu_score++;
+        PlaySound(hit);
         ball.speedX = 5;
         ball.speedY = 5;
         *scored = true; // Mark scored
@@ -276,6 +278,7 @@ void gameLogic(bool *scored, double *delayStartTime)
     else if (ball.x - ball.rad <= 0)
     {
         player_score++;
+        PlaySound(hit);
         ball.x = screen_width / 2;
         ball.y = screen_height / 2;
         ball.speedX = 5;
@@ -302,6 +305,7 @@ void gameLogic(bool *scored, double *delayStartTime)
     if (player_score >= 5 || cpu_score >= 5)
     {
         currentScreen = GAMEOVER;
+        PlaySound(gameover);
     }
 
     // Increase speed up to 10
