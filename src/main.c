@@ -264,7 +264,7 @@ void gameLogic(bool *scored, double *delayStartTime,Sound hit,Sound gameover)
     if (ball.x + ball.rad >= screen_width)
     {
         cpu_score++;
-        PlaySound(hit);
+        if(cpu_score<5) PlaySound(hit);
         ball.speedX = 5;
         ball.speedY = 5;
         *scored = true; // Mark scored
@@ -278,7 +278,7 @@ void gameLogic(bool *scored, double *delayStartTime,Sound hit,Sound gameover)
     else if (ball.x - ball.rad <= 0)
     {
         player_score++;
-        PlaySound(hit);
+        if(player_score<5) PlaySound(hit);
         ball.x = screen_width / 2;
         ball.y = screen_height / 2;
         ball.speedX = 5;
