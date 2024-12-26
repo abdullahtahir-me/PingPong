@@ -193,7 +193,10 @@ int main()
     UnloadTexture(bg);
     UnloadTexture(start);
     UnloadTexture(end);
-    
+    UnloadSound(hit);
+    UnloadSound(logo);
+    UnloadSound(gameover);
+
     CloseWindow();
     return 0;
 }
